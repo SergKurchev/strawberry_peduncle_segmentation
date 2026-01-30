@@ -64,13 +64,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# Dataset (large files)
-strawberry_peduncle_segmentation/dataset/images/*.png
-strawberry_peduncle_segmentation/dataset/masks/*.png
-strawberry_peduncle_segmentation/dataset/visualizations/*.png
-
-# Keep annotations
-!strawberry_peduncle_segmentation/dataset/annotations.json
+# Dataset (keep small samples or full dataset if small)
+# strawberry_peduncle_segmentation/dataset/images/
+# strawberry_peduncle_segmentation/dataset/masks/
+# strawberry_peduncle_segmentation/dataset/visualizations/
 
 # Python
 __pycache__/
