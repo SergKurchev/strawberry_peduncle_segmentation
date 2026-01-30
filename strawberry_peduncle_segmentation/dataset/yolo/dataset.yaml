@@ -1,0 +1,11 @@
+# YOLO Dataset Configuration
+# Generated from COCO format
+
+path: C:\Users\NeverGonnaGiveYouUp\My project\strawberry_peduncle_segmentation\dataset\yolo
+train: images  # Все изображения для обучения
+val: images    # Можно разделить на train/val позже
+
+# Classes
+names:
+  0: red_cube
+  1: green_parallelepiped

@@ -141,28 +141,32 @@ public class DatasetGenerator : MonoBehaviour
         // ID хранится в компоненте SegmentationId, теги не нужны
 
         // Сохранение данных структуры
+        // Используем разные ID для куба и параллелепипеда
+        int cubeIdValue = nextInstanceId;
+        int paraIdValue = nextInstanceId + 1;
+
         StructureData data = new StructureData
         {
-            instanceId = nextInstanceId,
+            instanceId = cubeIdValue, // Основной ID структуры (куба)
             cube = cube,
             parallelepiped = parallelepiped,
-            cubeSegmentColor = GetSegmentationColor(nextInstanceId * 2 - 1),
-            parallelepipedSegmentColor = GetSegmentationColor(nextInstanceId * 2)
+            cubeSegmentColor = GetSegmentationColor(cubeIdValue),
+            parallelepipedSegmentColor = GetSegmentationColor(paraIdValue)
         };
 
         // Добавление компонента для хранения ID
         var cubeId = cube.AddComponent<SegmentationId>();
-        cubeId.instanceId = nextInstanceId;
+        cubeId.instanceId = cubeIdValue;
         cubeId.categoryId = 1; // red_cube
         cubeId.parentInstanceId = 0; // No parent
 
         var paraId = parallelepiped.AddComponent<SegmentationId>();
-        paraId.instanceId = nextInstanceId;
+        paraId.instanceId = paraIdValue;
         paraId.categoryId = 2; // green_parallelepiped
-        paraId.parentInstanceId = nextInstanceId; // Parent is the cube with same instance ID
+        paraId.parentInstanceId = cubeIdValue; // Parent is the cube
 
         generatedStructures.Add(data);
-        nextInstanceId++;
+        nextInstanceId += 2; // Увеличиваем на 2, так как создали 2 объекта
     }
 
     /// <summary>
