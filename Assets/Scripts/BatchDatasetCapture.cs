@@ -113,11 +113,12 @@ public class BatchDatasetCapture : MonoBehaviour
         }
 
         // Создание папок
-        string basePath = Path.Combine(Application.dataPath, "..", outputFolder);
+        string basePath = Path.GetFullPath(Path.Combine(Application.dataPath, "..", outputFolder));
         string imagesPath = Path.Combine(basePath, "images");
         string masksPath = Path.Combine(basePath, "masks");
         string vizPath = Path.Combine(basePath, "visualizations");
         
+        Debug.Log($"Creating dataset directories at: {basePath}");
         Directory.CreateDirectory(imagesPath);
         Directory.CreateDirectory(masksPath);
         if (saveVisualizations)
