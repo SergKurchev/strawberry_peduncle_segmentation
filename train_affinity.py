@@ -33,7 +33,7 @@ def train_affinity_net(model, train_loader, val_loader, epochs=50, lr=0.001, dev
     criterion = nn.BCELoss()
     optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-4)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, mode='max', factor=0.5, patience=5, verbose=True
+        optimizer, mode='max', factor=0.5, patience=5
     )
     
     best_val_acc = 0.0
